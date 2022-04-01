@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+.vector {
+  position: absolute;
+  width: 1009px;
+  height: 1087px;
+  right: -50px;
+  top: -184.22px;
+  z-index: -1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.col {
+  flex: 1 0 0%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* FONTS */
+.txt--regular {
+  font-size: 22px;
+  color: #202020;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.txt--large {
+  font-size: 82px;
+  color: #202020;
+  font-weight: bold;
+  font-family: 'Elsie Swash Caps';
+}
+
+/* HOME */
+
+.home__img {
+  max-width: 100%;
+  position: absolute;
+  top: -50px;
+  z-index: -1;
+}
+
+.newsletter__form {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* HOME */
+
+.d-flex {
+  display: flex !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-baseline {
+  align-items: baseline !important;
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
 }
