@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Container from "../Container/Container";
 import Logo from "../../assets/logo.svg";
-import Menu from "../Menu/Menu";
 
 import "./navbar.css";
 
@@ -25,6 +23,14 @@ const Nav = styled.nav`
     justify-content: end;
   }
 
+  @media (min-width: 920px) {
+    ul.menu {
+      flex-direction: row;
+      padding: 0;
+      padding-left: 16px;
+    }
+  }
+
   ul.menu li {
     margin: 0 5px;
   }
@@ -41,7 +47,7 @@ const Nav = styled.nav`
   ul.menu li a {
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     text-decoration: none;
     color: #202020;
     transition: 0.2s;
