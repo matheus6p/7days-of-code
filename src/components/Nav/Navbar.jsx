@@ -6,55 +6,52 @@ import Logo from "../../assets/logo.svg";
 import "./navbar.css";
 
 const Nav = styled.nav`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2%;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin-bottom: 100px;
 
-  ul.menu {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: end;
+  @media (min-width: 920px) {
+    flex-direction: row;
+    padding: 0;
+    padding-left: 16px;
+  }
+`;
+
+export const NavMenu = styled.ul`
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: 920px) {
+    justify-content: flex-end;
   }
 
-  @media (min-width: 920px) {
-    ul.menu {
-      flex-direction: row;
-      padding: 0;
-      padding-left: 16px;
+  li {
+    list-style: none;
+    font-size: 12px;
+    @media (min-width: 920px) {
+      font-size: 16px;
     }
   }
-
-  ul.menu li {
-    margin: 0 5px;
-  }
-
-  ul.menu li::after {
-    content: " /";
-  }
-
-  ul.menu li:last-child::after {
-    content: "";
-    color: #202020;
-  }
-
-  ul.menu li a {
-    font-size: 16px;
+  li a {
+    display: inline-block;
     font-weight: 400;
-    font-family: "Montserrat";
+    font-size: inherit;
+    line-height: 1.1;
     text-decoration: none;
     color: #202020;
-    transition: 0.2s;
-  }
-
-  ul.menu li a:hover {
-    filter: opacity(0.6);
+    padding: 8px;
+    @media (min-width: 920px) {
+      padding: 16px;
+    }
   }
 `;
 
@@ -66,7 +63,7 @@ export default function Navbar() {
           <img src={Logo} alt="logo da loja" />
         </a>
       </div>
-      <ul className="menu">
+      <NavMenu className="menu">
         <li>
           <a href="/">Como fazer</a>
         </li>
@@ -82,7 +79,7 @@ export default function Navbar() {
         <li>
           <a href="/">Meu carrinho</a>
         </li>
-      </ul>
+      </NavMenu>
     </Nav>
   );
 }

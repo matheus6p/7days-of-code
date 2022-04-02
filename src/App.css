@@ -27,10 +27,17 @@
 /* HOME */
 
 .home__img {
-  max-width: 100%;
-  position: absolute;
-  top: -50px;
-  z-index: -1;
+  display: none;
+}
+
+@media(min-width: 920px) {
+  .home__img {
+    max-width: 100%;
+    position: absolute;
+    top: -50px;
+    z-index: -1;
+    display: block;
+  }
 }
 
 .newsletter__form {

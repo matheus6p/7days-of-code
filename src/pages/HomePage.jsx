@@ -7,8 +7,8 @@ import AssinarNewsletter from "../components/AssinarNewsletter/AssinarNewsletter
 export default function HomePage() {
   return (
     <main>
-      <Navbar />
       <Container>
+        <Navbar />
         <Row>
           <AssinarNewsletter />
         </Row>
