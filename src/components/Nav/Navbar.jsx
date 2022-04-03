@@ -41,6 +41,10 @@ export const NavMenu = styled.ul`
       font-size: 16px;
     }
   }
+
+  li::after {
+    content: " /";
+  }
   li a {
     display: inline-block;
     font-weight: 400;
