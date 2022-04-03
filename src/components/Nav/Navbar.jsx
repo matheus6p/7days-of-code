@@ -45,6 +45,9 @@ export const NavMenu = styled.ul`
   li::after {
     content: " /";
   }
+  li:last-child::after {
+    content: "";
+  }
   li a {
     display: inline-block;
     font-weight: 400;
