@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { Button } from "../UI/Button";
 import { Input } from "../UI/Input";
 import { FieldGroup } from "../UI/Input";
-import homeImg from '../../assets/home.png'
+import homeImg from "../../assets/home.png";
+import emailjs from "emailjs-com";
 
 const WrapperAssinarNewsletter = styled.div`
   background-color: #ffe29a;
@@ -38,6 +39,7 @@ const WrapperAssinarNewsletter = styled.div`
 
 export default function AssinarNewsletter() {
   const [email, setEmail] = useState();
+  const form = useRef();
   const {
     register,
     handleSubmit,
@@ -50,10 +52,24 @@ export default function AssinarNewsletter() {
     console.log(e.target.value);
   }
 
-  function send(data) {
-    alert(
-      `Obrigado pela assinatura, você receberá nossas novidades no e-mail ${data.email}`
-    );
+  function sendEmail(data, e) {
+    e.preventDefault();
+    console.log(form);
+
+    emailjs
+      .sendForm('gmailMessage', 'template_2hzjuhj', form.current, '4u9al_Xc8R4PnlCIX')
+      .then(
+        (result) => {
+          alert(
+            `Obrigado pela assinatura, você receberá nossas novidades no e-mail ${data.email}`
+          );
+          console.log(result.text);
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
 
   return (
@@ -66,11 +82,11 @@ export default function AssinarNewsletter() {
           </div>
           <div className="txt--regular" style={{ margin: "25px 0" }}>
             Encontre aqui uma vasta seleção de plantas para decorar a sua casa e
-            torná-lo uma pessoa mais feliz no seu dia a dia. Entre com seu e-mail
-            e assine nossa newsletter para saber das novidades da marca.
+            torná-lo uma pessoa mais feliz no seu dia a dia. Entre com seu
+            e-mail e assine nossa newsletter para saber das novidades da marca.
           </div>
         </div>
-        <form className="" onSubmit={handleSubmit(send)}>
+        <form ref={form} onSubmit={handleSubmit(sendEmail)}>
           <FieldGroup>
             <Input
               type="email"
